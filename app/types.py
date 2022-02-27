@@ -13,6 +13,8 @@ class PlanetType(DjangoObjectType):
 
 class PeopleType(DjangoObjectType):
     gender = graphene.Enum('PeopleGenderEnum', People.GENDER)
+    hair_color = graphene.Enum('PeopleHairColorEnum', People.HAIR_COLOR_CHOICE)
+    eye_color = graphene.Enum('PeopleEyeColorEnum', People.EYE_COLOR_CHOICE)
 
     class Meta:
         model = People

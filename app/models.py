@@ -42,10 +42,40 @@ class People(TimeStampedModel, SimpleNameModel):
         (NA, 'N/A'),
     )
 
+    BLACK = 'black'
+    BROWN = 'brown'
+    BLONDE = 'blonde'
+    RED = 'red'
+    WHITE = 'white'
+    BALD = 'bald'
+    YELLOW = 'yellow'
+    GREEN = 'green'
+    PURPLE = 'purple'
+    UNKNOWN = 'unknown'
+
+    HAIR_COLOR_CHOICE = (
+        (BLACK, 'Black'),
+        (BROWN, 'Brown'),
+        (BLONDE, 'Blonde'),
+        (RED, 'Red'),
+        (WHITE, 'White'),
+        (BALD, 'Bald'),
+    )
+
+    EYE_COLOR_CHOICE = (
+        (BLACK, 'Black'),
+        (BROWN, 'Brown'),
+        (YELLOW, 'Yellow'),
+        (RED, 'Red'),
+        (GREEN, 'Green'),
+        (PURPLE, 'Purple'),
+        (UNKNOWN, 'Unknown'),
+    )
+
     height = models.CharField(max_length=16, blank=True)
     mass = models.CharField(max_length=16, blank=True)
-    hair_color = models.CharField(max_length=32, blank=True)
-    skin_color = models.CharField(max_length=32, blank=True)
+    hair_color = models.CharField(max_length=32, blank=True, choices=HAIR_COLOR_CHOICE)
+    skin_color = models.CharField(max_length=32, blank=True, choices=EYE_COLOR_CHOICE)
     eye_color = models.CharField(max_length=32, blank=True)
     birth_year = models.CharField(max_length=16, blank=True)
     gender = models.CharField(max_length=64, choices=GENDER)
