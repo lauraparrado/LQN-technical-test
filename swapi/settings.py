@@ -1,5 +1,6 @@
 import os
 
+import dj_database_url
 from dotenv import load_dotenv
 
 load_dotenv()  # Load env variables
@@ -26,6 +27,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -92,3 +94,27 @@ CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1',
     'http://localhost',
 )
+
+# Heroku config
+
+IS_HEROKU = os.getenv('IS_HEROKU', False)
+
+if IS_HEROKU:
+    # Quitar opción de debug
+
+    DEBUG = False
+
+    # Permite conexión desde cualquier host
+
+    ALLOWED_HOSTS = ['*']
+
+    # Configuracion de estaticos
+
+    STATIC_URL = '/static/'
+    STATIC_ROOT = BASE_DIR + '/static/'
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR + '/media/'
+
+    # Configuración del gestor de DB
+
+    DATABASES['default'] = dj_database_url.config()
