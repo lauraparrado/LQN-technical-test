@@ -69,7 +69,7 @@ class AddOrUpdateCharacterMutation(graphene.relay.ClientIDMutation):
             for i, film in enumerate(films):
                 films[i] = from_global_id(film)[1]
 
-        people.films.set(Film.objects.filter(id__in=films))
+            people.films.set(Film.objects.filter(id__in=films))
 
         return AddOrUpdateCharacterMutation(character=people)
 
