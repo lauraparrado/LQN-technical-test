@@ -33,7 +33,7 @@ class People(TimeStampedModel, SimpleNameModel):
     MALE = 'male'
     FEMALE = 'female'
     HERMAPHRODITE = 'hermaphrodite'
-    NA = 'n/a'
+    NA = 'na'
 
     GENDER = (
         (MALE, 'Male'),
@@ -75,8 +75,8 @@ class People(TimeStampedModel, SimpleNameModel):
     height = models.CharField(max_length=16, blank=True)
     mass = models.CharField(max_length=16, blank=True)
     hair_color = models.CharField(max_length=32, blank=True, choices=HAIR_COLOR_CHOICE)
-    skin_color = models.CharField(max_length=32, blank=True, choices=EYE_COLOR_CHOICE)
-    eye_color = models.CharField(max_length=32, blank=True)
+    skin_color = models.CharField(max_length=32, blank=True)
+    eye_color = models.CharField(max_length=32, blank=True, choices=EYE_COLOR_CHOICE)
     birth_year = models.CharField(max_length=16, blank=True)
     gender = models.CharField(max_length=64, choices=GENDER)
     home_world = models.ForeignKey(Planet, on_delete=models.CASCADE, related_name='inhabitants')
