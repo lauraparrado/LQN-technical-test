@@ -13,14 +13,12 @@ class PlanetType(DjangoObjectType):
 
 class PeopleType(DjangoObjectType):
     gender = graphene.Enum('PeopleGenderEnum', People.GENDER)
-    hair_color = graphene.Enum('PeopleHairColorEnum', People.HAIR_COLOR_CHOICE)
-    eye_color = graphene.Enum('PeopleEyeColorEnum', People.EYE_COLOR_CHOICE)
 
     class Meta:
         model = People
         interfaces = (graphene.relay.Node,)
         filter_fields = {'name': ['iexact', 'icontains', 'contains', 'exact'], 'gender': ['exact']}
-        convert_choices_to_enum = False
+        convert_choices_to_enum = ['gender']
 
 
 class DirectorType(DjangoObjectType):
