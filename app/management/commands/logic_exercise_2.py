@@ -9,12 +9,28 @@ class Command(BaseCommand):
     name is to be repeated.
     '''
 
-    def search_starts_letter(self, lastletter, pokemons):
-        for i, pokemon in enumerate(pokemons):
-            if pokemon.startswith(lastletter):
-               return i
-        return False
+    longest_sequence = []
 
+    def search_starts_letter(self, lastletter, pokemons):
+        list_index = []
+        for pokemon in pokemons:
+            if pokemon.startswith(lastletter):
+                list_index.append(pokemon)
+        return list_index
+
+    def search_sequence(self, pokemons, index_list, sequence=[]):
+        for index in index_list:
+            current_pokemon = index
+            current_sequence = sequence.copy()
+            current_sequence.append(current_pokemon)
+            copy_pokemon = pokemons.copy()
+            copy_pokemon.pop(copy_pokemon.index(current_pokemon))
+            index = self.search_starts_letter(current_pokemon[-1], copy_pokemon)
+
+            if index == [] and len(current_sequence) > len(self.longest_sequence):
+                self.longest_sequence = current_sequence.copy()
+            else:
+                self.search_sequence(copy_pokemon, index, current_sequence)
 
     def handle(self, *args, **kwargs):
         pokemons = ["audino", "bagon", "baltoy", "banette", "bidoof", "braviary", "bronzor", "carracosta", "charmeleon",
@@ -27,29 +43,12 @@ class Command(BaseCommand):
                     "starly", "tirtouga", "trapinch", "treecko", "tyrogue", "vigoroth", "vulpix", "wailord",
                     "wartortle", "whismur", "wingull", "yamask"]
 
-        current_secuence = []
-        longest_seceunce = []
-
         for pokemon in pokemons:
-            current_pokemon = pokemon
-            current_secuence.append(current_pokemon)
-
             pokemons_copy = pokemons.copy()
-            pokemons_copy.pop(pokemons_copy.index(current_pokemon))
+            pokemons_copy.pop(pokemons_copy.index(pokemon))
 
-            index = self.search_starts_letter(current_pokemon[-1], pokemons_copy)
+            index_list = self.search_starts_letter(pokemon[-1], pokemons_copy)
+            self.search_sequence(pokemons_copy, index_list, [pokemon])
 
-            while index is not False:
-                current_pokemon = pokemons_copy[index]
-                current_secuence.append(current_pokemon)
-                pokemons_copy.pop(index)
-                index = self.search_starts_letter(current_pokemon[-1], pokemons_copy)
-
-            if len(current_secuence) > len(longest_seceunce):
-                longest_seceunce = current_secuence
-
-            current_secuence = []
-
-        self.stdout.write("{}".format(longest_seceunce))
-
-
+        self.stdout.write("tamaño de la secuencia: {}".format(len(self.longest_sequence)))
+        self.stdout.write("secuencia más larga: {}".format(self.longest_sequence))
