@@ -1,1 +1,1 @@
-web: gunicorn swapi.wsgi --log-file -
+web: gunicorn swapi.wsgi --timeout 60 --log-file -
