@@ -100,6 +100,10 @@ CORS_ORIGIN_WHITELIST = (
 IS_HEROKU = os.getenv('IS_HEROKU', False)
 
 if IS_HEROKU:
+    # Desactivar timezone
+
+    USE_TZ = False
+
     # Quitar opción de debug
 
     DEBUG = False
