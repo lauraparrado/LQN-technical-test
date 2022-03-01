@@ -46,3 +46,9 @@ The service should be available in the URL: `127.0.0.1:8000/graphql`.
 ```
 python manage.py test
 ```
+
+### Test server
+
+If you want to check it out, access the graphi explorer here: `https://prueba-laura-lqn.herokuapp.com/explore`.
+
+The service should be available in the URL: `https://prueba-laura-lqn.herokuapp.com/graphql`.
