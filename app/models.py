@@ -13,7 +13,7 @@ class SimpleNameModel(models.Model):
 
 
 class Planet(TimeStampedModel, SimpleNameModel):
-    """ Planetas del universo de Star Wars """
+    """Planetas del universo de Star Wars"""
 
     rotation_period = models.CharField(max_length=40, blank=True)
     orbital_period = models.CharField(max_length=40, blank=True)
@@ -25,79 +25,86 @@ class Planet(TimeStampedModel, SimpleNameModel):
     population = models.CharField(max_length=40, blank=True)
 
     class Meta:
-        db_table = 'planet'
+        db_table = "planet"
 
 
 class People(TimeStampedModel, SimpleNameModel):
-    """ Personajes del universo de Star Wars """
-    MALE = 'male'
-    FEMALE = 'female'
-    HERMAPHRODITE = 'hermaphrodite'
-    NA = 'na'
+    """Personajes del universo de Star Wars"""
+
+    MALE = "male"
+    FEMALE = "female"
+    HERMAPHRODITE = "hermaphrodite"
+    NA = "na"
 
     GENDER = (
-        (MALE, 'Male'),
-        (FEMALE, 'Female'),
-        (HERMAPHRODITE, 'Hermaphrodite'),
-        (NA, 'N/A'),
+        (MALE, "Male"),
+        (FEMALE, "Female"),
+        (HERMAPHRODITE, "Hermaphrodite"),
+        (NA, "N/A"),
     )
 
-    BLACK = 'black'
-    BROWN = 'brown'
-    BLONDE = 'blonde'
-    RED = 'red'
-    WHITE = 'white'
-    BALD = 'bald'
-    YELLOW = 'yellow'
-    GREEN = 'green'
-    PURPLE = 'purple'
-    UNKNOWN = 'unknown'
+    BLACK = "black"
+    BROWN = "brown"
+    BLONDE = "blonde"
+    RED = "red"
+    WHITE = "white"
+    BALD = "bald"
+    YELLOW = "yellow"
+    GREEN = "green"
+    PURPLE = "purple"
+    UNKNOWN = "unknown"
 
     HAIR_COLOR_CHOICE = (
-        (BLACK, 'Black'),
-        (BROWN, 'Brown'),
-        (BLONDE, 'Blonde'),
-        (RED, 'Red'),
-        (WHITE, 'White'),
-        (BALD, 'Bald'),
+        (BLACK, "Black"),
+        (BROWN, "Brown"),
+        (BLONDE, "Blonde"),
+        (RED, "Red"),
+        (WHITE, "White"),
+        (BALD, "Bald"),
     )
 
     EYE_COLOR_CHOICE = (
-        (BLACK, 'Black'),
-        (BROWN, 'Brown'),
-        (YELLOW, 'Yellow'),
-        (RED, 'Red'),
-        (GREEN, 'Green'),
-        (PURPLE, 'Purple'),
-        (UNKNOWN, 'Unknown'),
+        (BLACK, "Black"),
+        (BROWN, "Brown"),
+        (YELLOW, "Yellow"),
+        (RED, "Red"),
+        (GREEN, "Green"),
+        (PURPLE, "Purple"),
+        (UNKNOWN, "Unknown"),
     )
 
     height = models.CharField(max_length=16, blank=True)
     mass = models.CharField(max_length=16, blank=True)
-    hair_color = models.CharField(max_length=32, blank=True, choices=HAIR_COLOR_CHOICE)
+    hair_color = models.CharField(
+        max_length=32, blank=True, choices=HAIR_COLOR_CHOICE
+    )
     skin_color = models.CharField(max_length=32, blank=True)
-    eye_color = models.CharField(max_length=32, blank=True, choices=EYE_COLOR_CHOICE)
+    eye_color = models.CharField(
+        max_length=32, blank=True, choices=EYE_COLOR_CHOICE
+    )
     birth_year = models.CharField(max_length=16, blank=True)
     gender = models.CharField(max_length=64, choices=GENDER)
-    home_world = models.ForeignKey(Planet, on_delete=models.CASCADE, related_name='inhabitants')
+    home_world = models.ForeignKey(
+        Planet, on_delete=models.CASCADE, related_name="inhabitants"
+    )
 
     class Meta:
-        db_table = 'people'
-        verbose_name_plural = 'people'
+        db_table = "people"
+        verbose_name_plural = "people"
 
 
 class Director(SimpleNameModel):
-    """ Directores de películas"""
+    """Directores de películas"""
 
     class Meta:
-        db_table = 'director'
+        db_table = "director"
 
 
 class Producer(SimpleNameModel):
-    """ Productores de películas"""
+    """Productores de películas"""
 
     class Meta:
-        db_table = 'producer'
+        db_table = "producer"
 
 
 class Film(TimeStampedModel):
@@ -105,13 +112,17 @@ class Film(TimeStampedModel):
     episode_id = models.PositiveSmallIntegerField()  # TODO: Agregar choices
     opening_crawl = models.TextField(max_length=1000)
     release_date = models.DateField()
-    director = models.ForeignKey(Director, on_delete=models.CASCADE, related_name='films')
-    producer = models.ManyToManyField(Producer, related_name='films')
-    characters = models.ManyToManyField(People, related_name='films', blank=True)
-    planets = models.ManyToManyField(Planet, related_name='films', blank=True)
+    director = models.ForeignKey(
+        Director, on_delete=models.CASCADE, related_name="films"
+    )
+    producer = models.ManyToManyField(Producer, related_name="films")
+    characters = models.ManyToManyField(
+        People, related_name="films", blank=True
+    )
+    planets = models.ManyToManyField(Planet, related_name="films", blank=True)
 
     class Meta:
-        db_table = 'film'
+        db_table = "film"
 
     def __str__(self):
         return self.title

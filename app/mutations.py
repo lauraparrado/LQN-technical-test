@@ -2,7 +2,7 @@ import graphene
 from graphql_relay import from_global_id
 
 from .models import Planet, People, Film
-from .types import PlanetType, FilmType, PeopleType
+from .types import PlanetType, PeopleType
 from .utils import generic_model_mutation_process
 
 
@@ -23,11 +23,11 @@ class AddOrUpdatePlanetMutation(graphene.relay.ClientIDMutation):
 
     @classmethod
     def mutate_and_get_payload(cls, root, info, **input):
-        raw_id = input.get('id', None)
+        raw_id = input.get("id", None)
 
-        data = {'model': Planet, 'data': input}
+        data = {"model": Planet, "data": input}
         if raw_id:
-            data['id'] = from_global_id(raw_id)[1]
+            data["id"] = from_global_id(raw_id)[1]
 
         planet = generic_model_mutation_process(**data)
         return AddOrUpdatePlanetMutation(planet=planet)
@@ -41,27 +41,33 @@ class AddOrUpdateCharacterMutation(graphene.relay.ClientIDMutation):
         name = graphene.String(required=True)
         height = graphene.String(required=False)
         mass = graphene.String(required=False)
-        hair_color = graphene.Enum('hair_color', People.HAIR_COLOR_CHOICE)(required=False)
+        hair_color = graphene.Enum("hair_color", People.HAIR_COLOR_CHOICE)(
+            required=False
+        )
         skin_color = graphene.String(required=False)
-        eye_color = graphene.Enum('eye_color', People.EYE_COLOR_CHOICE)(required=False)
+        eye_color = graphene.Enum("eye_color", People.EYE_COLOR_CHOICE)(
+            required=False
+        )
         birth_year = graphene.String(required=False)
-        gender = graphene.Enum('gender', People.GENDER)(required=False)
+        gender = graphene.Enum("gender", People.GENDER)(required=False)
         home_world = graphene.ID(required=False)
         films = graphene.List(graphene.ID, required=False)
 
     @classmethod
     def mutate_and_get_payload(cls, root, info, **input):
-        home_world = input.get('home_world', None)
-        films = input.pop('films', None)
-        raw_id = input.get('id', None)
+        home_world = input.get("home_world", None)
+        films = input.pop("films", None)
+        raw_id = input.get("id", None)
 
         if home_world:
-            input['home_world'] = Planet.objects.get(id=from_global_id(home_world)[1])
+            input["home_world"] = Planet.objects.get(
+                id=from_global_id(home_world)[1]
+            )
 
-        data = {'model': People, 'data': input}
+        data = {"model": People, "data": input}
 
         if raw_id:
-            data['id'] = from_global_id(raw_id)[1]
+            data["id"] = from_global_id(raw_id)[1]
 
         people = generic_model_mutation_process(**data)
 
@@ -72,4 +78,3 @@ class AddOrUpdateCharacterMutation(graphene.relay.ClientIDMutation):
             people.films.set(Film.objects.filter(id__in=films))
 
         return AddOrUpdateCharacterMutation(character=people)
-

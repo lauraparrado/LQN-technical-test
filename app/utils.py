@@ -1,12 +1,12 @@
 def generic_model_mutation_process(model, data, id=None, commit=True):
-    """ Es posible actualizar la instancia de un modelo
-     o crearla. Pero esta es cargada a la base de datos
-     solo si commit es verdadero si no, solo se retorna esta
-     """
+    """Es posible actualizar la instancia de un modelo
+    o crearla. Pero esta es cargada a la base de datos
+    solo si commit es verdadero si no, solo se retorna esta
+    """
     if id:
         item = model.objects.get(id=id)
         try:
-            del data['id']
+            del data["id"]
         except KeyError:
             pass
 

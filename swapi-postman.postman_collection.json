@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "72f423fd-396a-4890-970a-009ea4173955",
+		"name": "Postman Collection (from GraphQL)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "mutations",
+			"item": [
+				{
+					"name": "addOrUpdatePlanetMutation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation addOrUpdatePlanetMutation ($before: String, $after: String, $first: Int, $last: Int, $name_Iexact: String, $name_Icontains: String, $name_Contains: String, $name: String, $gender: String, $before1: String, $after1: String, $first1: Int, $last1: Int, $title_Iexact: String, $title_Icontains: String, $title_Contains: String, $title: String, $episodeId: Int, $releaseDate: Date, $input: AddOrUpdatePlanetMutationInput!) {\n    addOrUpdatePlanetMutation (input: $input) {\n        planet {\n            id\n            created\n            modified\n            name\n            rotationPeriod\n            orbitalPeriod\n            diameter\n            climate\n            gravity\n            terrain\n            surfaceWater\n            population\n            inhabitants (before: $before, after: $after, first: $first, last: $last, name_Iexact: $name_Iexact, name_Icontains: $name_Icontains, name_Contains: $name_Contains, name: $name, gender: $gender) {\n                pageInfo {\n                    hasNextPage\n                    hasPreviousPage\n                    startCursor\n                    endCursor\n                }\n                edges {\n                    node {\n                        created\n                        modified\n                        name\n                        id\n                        height\n                        mass\n                        hairColor\n                        skinColor\n                        eyeColor\n                        birthYear\n                        gender\n                    }\n                    cursor\n                }\n            }\n            films (before: $before1, after: $after1, first: $first1, last: $last1, title_Iexact: $title_Iexact, title_Icontains: $title_Icontains, title_Contains: $title_Contains, title: $title, episodeId: $episodeId, releaseDate: $releaseDate) {\n                pageInfo {\n                    hasNextPage\n                    hasPreviousPage\n                    startCursor\n                    endCursor\n                }\n                edges {\n                    node {\n                        created\n                        modified\n                        id\n                        title\n                        episodeId\n                        openingCrawl\n                        releaseDate\n                    }\n                    cursor\n                }\n            }\n        }\n        clientMutationId\n    }\n}",
+								"variables": "{\n  \"before\": \"\",\n  \"after\": \"\",\n  \"first\": 0,\n  \"last\": 0,\n  \"name_Iexact\": \"\",\n  \"name_Icontains\": \"\",\n  \"name_Contains\": \"\",\n  \"name\": \"\",\n  \"gender\": \"\",\n  \"before1\": \"\",\n  \"after1\": \"\",\n  \"first1\": 0,\n  \"last1\": 0,\n  \"title_Iexact\": \"\",\n  \"title_Icontains\": \"\",\n  \"title_Contains\": \"\",\n  \"title\": \"\",\n  \"episodeId\": 0,\n  \"releaseDate\": \"\",\n  \"input\": {\n    \"id\": 0,\n    \"name\": \"\",\n    \"rotationPeriod\": \"\",\n    \"orbitalPeriod\": \"\",\n    \"diameter\": \"\",\n    \"climate\": \"\",\n    \"gravity\": \"\",\n    \"terrain\": \"\",\n    \"surfaceWater\": \"\",\n    \"population\": \"\",\n    \"clientMutationId\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addOrUpdateCharacterMutation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation addOrUpdateCharacterMutation ($before: String, $after: String, $first: Int, $last: Int, $name_Iexact: String, $name_Icontains: String, $name_Contains: String, $name: String, $gender: String, $before1: String, $after1: String, $first1: Int, $last1: Int, $title_Iexact: String, $title_Icontains: String, $title_Contains: String, $title: String, $episodeId: Int, $releaseDate: Date, $before2: String, $after2: String, $first2: Int, $last2: Int, $title_Iexact1: String, $title_Icontains1: String, $title_Contains1: String, $title1: String, $episodeId1: Int, $releaseDate1: Date, $input: AddOrUpdateCharacterMutationInput!) {\n    addOrUpdateCharacterMutation (input: $input) {\n        character {\n            created\n            modified\n            name\n            id\n            height\n            mass\n            hairColor\n            skinColor\n            eyeColor\n            birthYear\n            gender\n            homeWorld {\n                id\n                created\n                modified\n                name\n                rotationPeriod\n                orbitalPeriod\n                diameter\n                climate\n                gravity\n                terrain\n                surfaceWater\n                population\n                inhabitants (before: $before, after: $after, first: $first, last: $last, name_Iexact: $name_Iexact, name_Icontains: $name_Icontains, name_Contains: $name_Contains, name: $name, gender: $gender) {\n                    pageInfo {\n                        hasNextPage\n                        hasPreviousPage\n                        startCursor\n                        endCursor\n                    }\n                    edges {\n                        cursor\n                    }\n                }\n                films (before: $before1, after: $after1, first: $first1, last: $last1, title_Iexact: $title_Iexact, title_Icontains: $title_Icontains, title_Contains: $title_Contains, title: $title, episodeId: $episodeId, releaseDate: $releaseDate) {\n                    pageInfo {\n                        hasNextPage\n                        hasPreviousPage\n                        startCursor\n                        endCursor\n                    }\n                    edges {\n                        cursor\n                    }\n                }\n            }\n            films (before: $before2, after: $after2, first: $first2, last: $last2, title_Iexact: $title_Iexact1, title_Icontains: $title_Icontains1, title_Contains: $title_Contains1, title: $title1, episodeId: $episodeId1, releaseDate: $releaseDate1) {\n                pageInfo {\n                    hasNextPage\n                    hasPreviousPage\n                    startCursor\n                    endCursor\n                }\n                edges {\n                    node {\n                        created\n                        modified\n                        id\n                        title\n                        episodeId\n                        openingCrawl\n                        releaseDate\n                    }\n                    cursor\n                }\n            }\n        }\n        clientMutationId\n    }\n}",
+								"variables": "{\n  \"before\": \"\",\n  \"after\": \"\",\n  \"first\": 0,\n  \"last\": 0,\n  \"name_Iexact\": \"\",\n  \"name_Icontains\": \"\",\n  \"name_Contains\": \"\",\n  \"name\": \"\",\n  \"gender\": \"\",\n  \"before1\": \"\",\n  \"after1\": \"\",\n  \"first1\": 0,\n  \"last1\": 0,\n  \"title_Iexact\": \"\",\n  \"title_Icontains\": \"\",\n  \"title_Contains\": \"\",\n  \"title\": \"\",\n  \"episodeId\": 0,\n  \"releaseDate\": \"\",\n  \"before2\": \"\",\n  \"after2\": \"\",\n  \"first2\": 0,\n  \"last2\": 0,\n  \"title_Iexact1\": \"\",\n  \"title_Icontains1\": \"\",\n  \"title_Contains1\": \"\",\n  \"title1\": \"\",\n  \"episodeId1\": 0,\n  \"releaseDate1\": \"\",\n  \"input\": {\n    \"id\": 0,\n    \"name\": \"\",\n    \"height\": \"\",\n    \"mass\": \"\",\n    \"hairColor\": \"\",\n    \"skinColor\": \"\",\n    \"eyeColor\": \"\",\n    \"birthYear\": \"\",\n    \"gender\": \"\",\n    \"homeWorld\": 0,\n    \"films\": [\n      0\n    ],\n    \"clientMutationId\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "queries",
+			"item": [
+				{
+					"name": "planet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query planet ($before: String, $after: String, $first: Int, $last: Int, $name_Iexact: String, $name_Icontains: String, $name_Contains: String, $name: String, $gender: String, $before1: String, $after1: String, $first1: Int, $last1: Int, $title_Iexact: String, $title_Icontains: String, $title_Contains: String, $title: String, $episodeId: Int, $releaseDate: Date, $id: ID!) {\n    planet (id: $id) {\n        id\n        created\n        modified\n        name\n        rotationPeriod\n        orbitalPeriod\n        diameter\n        climate\n        gravity\n        terrain\n        surfaceWater\n        population\n        inhabitants (before: $before, after: $after, first: $first, last: $last, name_Iexact: $name_Iexact, name_Icontains: $name_Icontains, name_Contains: $name_Contains, name: $name, gender: $gender) {\n            pageInfo {\n                hasNextPage\n                hasPreviousPage\n                startCursor\n                endCursor\n            }\n            edges {\n                node {\n                    created\n                    modified\n                    name\n                    id\n                    height\n                    mass\n                    hairColor\n                    skinColor\n                    eyeColor\n                    birthYear\n                    gender\n                    homeWorld {\n                        id\n                        created\n                        modified\n                        name\n                        rotationPeriod\n                        orbitalPeriod\n                        diameter\n                        climate\n                        gravity\n                        terrain\n                        surfaceWater\n                        population\n                    }\n                }\n                cursor\n            }\n        }\n        films (before: $before1, after: $after1, first: $first1, last: $last1, title_Iexact: $title_Iexact, title_Icontains: $title_Icontains, title_Contains: $title_Contains, title: $title, episodeId: $episodeId, releaseDate: $releaseDate) {\n            pageInfo {\n                hasNextPage\n                hasPreviousPage\n                startCursor\n                endCursor\n            }\n            edges {\n                node {\n                    created\n                    modified\n                    id\n                    title\n                    episodeId\n                    openingCrawl\n                    releaseDate\n                    director {\n                        name\n                        id\n                    }\n                }\n                cursor\n            }\n        }\n    }\n}",
+								"variables": "{\n  \"before\": \"\",\n  \"after\": \"\",\n  \"first\": 0,\n  \"last\": 0,\n  \"name_Iexact\": \"\",\n  \"name_Icontains\": \"\",\n  \"name_Contains\": \"\",\n  \"name\": \"\",\n  \"gender\": \"\",\n  \"before1\": \"\",\n  \"after1\": \"\",\n  \"first1\": 0,\n  \"last1\": 0,\n  \"title_Iexact\": \"\",\n  \"title_Icontains\": \"\",\n  \"title_Contains\": \"\",\n  \"title\": \"\",\n  \"episodeId\": 0,\n  \"releaseDate\": \"\",\n  \"id\": 0\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allPlanets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query allPlanets ($before: String, $after: String, $first: Int, $last: Int, $name_Iexact: String, $name_Icontains: String, $name_Contains: String, $name: String, $gender: String, $before1: String, $after1: String, $first1: Int, $last1: Int, $title_Iexact: String, $title_Icontains: String, $title_Contains: String, $title: String, $episodeId: Int, $releaseDate: Date, $before2: String, $after2: String, $first2: Int, $last2: Int, $name_Iexact1: String, $name_Icontains1: String, $name_Contains1: String, $name1: String) {\n    allPlanets (before: $before2, after: $after2, first: $first2, last: $last2, name_Iexact: $name_Iexact1, name_Icontains: $name_Icontains1, name_Contains: $name_Contains1, name: $name1) {\n        pageInfo {\n            hasNextPage\n            hasPreviousPage\n            startCursor\n            endCursor\n        }\n        edges {\n            node {\n                id\n                created\n                modified\n                name\n                rotationPeriod\n                orbitalPeriod\n                diameter\n                climate\n                gravity\n                terrain\n                surfaceWater\n                population\n                inhabitants (before: $before, after: $after, first: $first, last: $last, name_Iexact: $name_Iexact, name_Icontains: $name_Icontains, name_Contains: $name_Contains, name: $name, gender: $gender) {\n                    pageInfo {\n                        hasNextPage\n                        hasPreviousPage\n                        startCursor\n                        endCursor\n                    }\n                    edges {\n                        cursor\n                    }\n                }\n                films (before: $before1, after: $after1, first: $first1, last: $last1, title_Iexact: $title_Iexact, title_Icontains: $title_Icontains, title_Contains: $title_Contains, title: $title, episodeId: $episodeId, releaseDate: $releaseDate) {\n                    pageInfo {\n                        hasNextPage\n                        hasPreviousPage\n                        startCursor\n                        endCursor\n                    }\n                    edges {\n                        cursor\n                    }\n                }\n            }\n            cursor\n        }\n    }\n}",
+								"variables": "{\n  \"before\": \"\",\n  \"after\": \"\",\n  \"first\": 0,\n  \"last\": 0,\n  \"name_Iexact\": \"\",\n  \"name_Icontains\": \"\",\n  \"name_Contains\": \"\",\n  \"name\": \"\",\n  \"gender\": \"\",\n  \"before1\": \"\",\n  \"after1\": \"\",\n  \"first1\": 0,\n  \"last1\": 0,\n  \"title_Iexact\": \"\",\n  \"title_Icontains\": \"\",\n  \"title_Contains\": \"\",\n  \"title\": \"\",\n  \"episodeId\": 0,\n  \"releaseDate\": \"\",\n  \"before2\": \"\",\n  \"after2\": \"\",\n  \"first2\": 0,\n  \"last2\": 0,\n  \"name_Iexact1\": \"\",\n  \"name_Icontains1\": \"\",\n  \"name_Contains1\": \"\",\n  \"name1\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "people",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query people ($before: String, $after: String, $first: Int, $last: Int, $name_Iexact: String, $name_Icontains: String, $name_Contains: String, $name: String, $gender: String, $before1: String, $after1: String, $first1: Int, $last1: Int, $title_Iexact: String, $title_Icontains: String, $title_Contains: String, $title: String, $episodeId: Int, $releaseDate: Date, $before2: String, $after2: String, $first2: Int, $last2: Int, $title_Iexact1: String, $title_Icontains1: String, $title_Contains1: String, $title1: String, $episodeId1: Int, $releaseDate1: Date, $id: ID!) {\n    people (id: $id) {\n        created\n        modified\n        name\n        id\n        height\n        mass\n        hairColor\n        skinColor\n        eyeColor\n        birthYear\n        gender\n        homeWorld {\n            id\n            created\n            modified\n            name\n            rotationPeriod\n            orbitalPeriod\n            diameter\n            climate\n            gravity\n            terrain\n            surfaceWater\n            population\n            inhabitants (before: $before, after: $after, first: $first, last: $last, name_Iexact: $name_Iexact, name_Icontains: $name_Icontains, name_Contains: $name_Contains, name: $name, gender: $gender) {\n                pageInfo {\n                    hasNextPage\n                    hasPreviousPage\n                    startCursor\n                    endCursor\n                }\n                edges {\n                    node {\n                        created\n                        modified\n                        name\n                        id\n                        height\n                        mass\n                        hairColor\n                        skinColor\n                        eyeColor\n                        birthYear\n                        gender\n                    }\n                    cursor\n                }\n            }\n            films (before: $before1, after: $after1, first: $first1, last: $last1, title_Iexact: $title_Iexact, title_Icontains: $title_Icontains, title_Contains: $title_Contains, title: $title, episodeId: $episodeId, releaseDate: $releaseDate) {\n                pageInfo {\n                    hasNextPage\n                    hasPreviousPage\n                    startCursor\n                    endCursor\n                }\n                edges {\n                    node {\n                        created\n                        modified\n                        id\n                        title\n                        episodeId\n                        openingCrawl\n                        releaseDate\n                    }\n                    cursor\n                }\n            }\n        }\n        films (before: $before2, after: $after2, first: $first2, last: $last2, title_Iexact: $title_Iexact1, title_Icontains: $title_Icontains1, title_Contains: $title_Contains1, title: $title1, episodeId: $episodeId1, releaseDate: $releaseDate1) {\n            pageInfo {\n                hasNextPage\n                hasPreviousPage\n                startCursor\n                endCursor\n            }\n            edges {\n                node {\n                    created\n                    modified\n                    id\n                    title\n                    episodeId\n                    openingCrawl\n                    releaseDate\n                    director {\n                        name\n                        id\n                    }\n                }\n                cursor\n            }\n        }\n    }\n}",
+								"variables": "{\n  \"before\": \"\",\n  \"after\": \"\",\n  \"first\": 0,\n  \"last\": 0,\n  \"name_Iexact\": \"\",\n  \"name_Icontains\": \"\",\n  \"name_Contains\": \"\",\n  \"name\": \"\",\n  \"gender\": \"\",\n  \"before1\": \"\",\n  \"after1\": \"\",\n  \"first1\": 0,\n  \"last1\": 0,\n  \"title_Iexact\": \"\",\n  \"title_Icontains\": \"\",\n  \"title_Contains\": \"\",\n  \"title\": \"\",\n  \"episodeId\": 0,\n  \"releaseDate\": \"\",\n  \"before2\": \"\",\n  \"after2\": \"\",\n  \"first2\": 0,\n  \"last2\": 0,\n  \"title_Iexact1\": \"\",\n  \"title_Icontains1\": \"\",\n  \"title_Contains1\": \"\",\n  \"title1\": \"\",\n  \"episodeId1\": 0,\n  \"releaseDate1\": \"\",\n  \"id\": 0\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allPeople",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query allPeople ($before: String, $after: String, $first: Int, $last: Int, $title_Iexact: String, $title_Icontains: String, $title_Contains: String, $title: String, $episodeId: Int, $releaseDate: Date, $before1: String, $after1: String, $first1: Int, $last1: Int, $name_Iexact: String, $name_Icontains: String, $name_Contains: String, $name: String, $gender: String) {\n    allPeople (before: $before1, after: $after1, first: $first1, last: $last1, name_Iexact: $name_Iexact, name_Icontains: $name_Icontains, name_Contains: $name_Contains, name: $name, gender: $gender) {\n        pageInfo {\n            hasNextPage\n            hasPreviousPage\n            startCursor\n            endCursor\n        }\n        edges {\n            node {\n                created\n                modified\n                name\n                id\n                height\n                mass\n                hairColor\n                skinColor\n                eyeColor\n                birthYear\n                gender\n                homeWorld {\n                    id\n                    created\n                    modified\n                    name\n                    rotationPeriod\n                    orbitalPeriod\n                    diameter\n                    climate\n                    gravity\n                    terrain\n                    surfaceWater\n                    population\n                }\n                films (before: $before, after: $after, first: $first, last: $last, title_Iexact: $title_Iexact, title_Icontains: $title_Icontains, title_Contains: $title_Contains, title: $title, episodeId: $episodeId, releaseDate: $releaseDate) {\n                    pageInfo {\n                        hasNextPage\n                        hasPreviousPage\n                        startCursor\n                        endCursor\n                    }\n                    edges {\n                        cursor\n                    }\n                }\n            }\n            cursor\n        }\n    }\n}",
+								"variables": "{\n  \"before\": \"\",\n  \"after\": \"\",\n  \"first\": 0,\n  \"last\": 0,\n  \"title_Iexact\": \"\",\n  \"title_Icontains\": \"\",\n  \"title_Contains\": \"\",\n  \"title\": \"\",\n  \"episodeId\": 0,\n  \"releaseDate\": \"\",\n  \"before1\": \"\",\n  \"after1\": \"\",\n  \"first1\": 0,\n  \"last1\": 0,\n  \"name_Iexact\": \"\",\n  \"name_Icontains\": \"\",\n  \"name_Contains\": \"\",\n  \"name\": \"\",\n  \"gender\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "film",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query film ($before: String, $after: String, $first: Int, $last: Int, $title_Iexact: String, $title_Icontains: String, $title_Contains: String, $title: String, $episodeId: Int, $releaseDate: Date, $before1: String, $after1: String, $first1: Int, $last1: Int, $name: String, $before2: String, $after2: String, $first2: Int, $last2: Int, $name_Iexact: String, $name_Icontains: String, $name_Contains: String, $name1: String, $gender: String, $before3: String, $after3: String, $first3: Int, $last3: Int, $name_Iexact1: String, $name_Icontains1: String, $name_Contains1: String, $name2: String, $id: ID!) {\n    film (id: $id) {\n        created\n        modified\n        id\n        title\n        episodeId\n        openingCrawl\n        releaseDate\n        director {\n            name\n            id\n            films (before: $before, after: $after, first: $first, last: $last, title_Iexact: $title_Iexact, title_Icontains: $title_Icontains, title_Contains: $title_Contains, title: $title, episodeId: $episodeId, releaseDate: $releaseDate) {\n                pageInfo {\n                    hasNextPage\n                    hasPreviousPage\n                    startCursor\n                    endCursor\n                }\n                edges {\n                    node {\n                        created\n                        modified\n                        id\n                        title\n                        episodeId\n                        openingCrawl\n                        releaseDate\n                    }\n                    cursor\n                }\n            }\n        }\n        producer (before: $before1, after: $after1, first: $first1, last: $last1, name: $name) {\n            pageInfo {\n                hasNextPage\n                hasPreviousPage\n                startCursor\n                endCursor\n            }\n            edges {\n                node {\n                    name\n                    id\n                }\n                cursor\n            }\n        }\n        characters (before: $before2, after: $after2, first: $first2, last: $last2, name_Iexact: $name_Iexact, name_Icontains: $name_Icontains, name_Contains: $name_Contains, name: $name1, gender: $gender) {\n            pageInfo {\n                hasNextPage\n                hasPreviousPage\n                startCursor\n                endCursor\n            }\n            edges {\n                node {\n                    created\n                    modified\n                    name\n                    id\n                    height\n                    mass\n                    hairColor\n                    skinColor\n                    eyeColor\n                    birthYear\n                    gender\n                    homeWorld {\n                        id\n                        created\n                        modified\n                        name\n                        rotationPeriod\n                        orbitalPeriod\n                        diameter\n                        climate\n                        gravity\n                        terrain\n                        surfaceWater\n                        population\n                    }\n                }\n                cursor\n            }\n        }\n        planets (before: $before3, after: $after3, first: $first3, last: $last3, name_Iexact: $name_Iexact1, name_Icontains: $name_Icontains1, name_Contains: $name_Contains1, name: $name2) {\n            pageInfo {\n                hasNextPage\n                hasPreviousPage\n                startCursor\n                endCursor\n            }\n            edges {\n                node {\n                    id\n                    created\n                    modified\n                    name\n                    rotationPeriod\n                    orbitalPeriod\n                    diameter\n                    climate\n                    gravity\n                    terrain\n                    surfaceWater\n                    population\n                }\n                cursor\n            }\n        }\n    }\n}",
+								"variables": "{\n  \"before\": \"\",\n  \"after\": \"\",\n  \"first\": 0,\n  \"last\": 0,\n  \"title_Iexact\": \"\",\n  \"title_Icontains\": \"\",\n  \"title_Contains\": \"\",\n  \"title\": \"\",\n  \"episodeId\": 0,\n  \"releaseDate\": \"\",\n  \"before1\": \"\",\n  \"after1\": \"\",\n  \"first1\": 0,\n  \"last1\": 0,\n  \"name\": \"\",\n  \"before2\": \"\",\n  \"after2\": \"\",\n  \"first2\": 0,\n  \"last2\": 0,\n  \"name_Iexact\": \"\",\n  \"name_Icontains\": \"\",\n  \"name_Contains\": \"\",\n  \"name1\": \"\",\n  \"gender\": \"\",\n  \"before3\": \"\",\n  \"after3\": \"\",\n  \"first3\": 0,\n  \"last3\": 0,\n  \"name_Iexact1\": \"\",\n  \"name_Icontains1\": \"\",\n  \"name_Contains1\": \"\",\n  \"name2\": \"\",\n  \"id\": 0\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allFilms",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query allFilms ($before: String, $after: String, $first: Int, $last: Int, $name: String, $before1: String, $after1: String, $first1: Int, $last1: Int, $name_Iexact: String, $name_Icontains: String, $name_Contains: String, $name1: String, $gender: String, $before2: String, $after2: String, $first2: Int, $last2: Int, $name_Iexact1: String, $name_Icontains1: String, $name_Contains1: String, $name2: String, $before3: String, $after3: String, $first3: Int, $last3: Int, $title_Iexact: String, $title_Icontains: String, $title_Contains: String, $title: String, $episodeId: Int, $releaseDate: Date) {\n    allFilms (before: $before3, after: $after3, first: $first3, last: $last3, title_Iexact: $title_Iexact, title_Icontains: $title_Icontains, title_Contains: $title_Contains, title: $title, episodeId: $episodeId, releaseDate: $releaseDate) {\n        pageInfo {\n            hasNextPage\n            hasPreviousPage\n            startCursor\n            endCursor\n        }\n        edges {\n            node {\n                created\n                modified\n                id\n                title\n                episodeId\n                openingCrawl\n                releaseDate\n                director {\n                    name\n                    id\n                }\n                producer (before: $before, after: $after, first: $first, last: $last, name: $name) {\n                    pageInfo {\n                        hasNextPage\n                        hasPreviousPage\n                        startCursor\n                        endCursor\n                    }\n                    edges {\n                        cursor\n                    }\n                }\n                characters (before: $before1, after: $after1, first: $first1, last: $last1, name_Iexact: $name_Iexact, name_Icontains: $name_Icontains, name_Contains: $name_Contains, name: $name1, gender: $gender) {\n                    pageInfo {\n                        hasNextPage\n                        hasPreviousPage\n                        startCursor\n                        endCursor\n                    }\n                    edges {\n                        cursor\n                    }\n                }\n                planets (before: $before2, after: $after2, first: $first2, last: $last2, name_Iexact: $name_Iexact1, name_Icontains: $name_Icontains1, name_Contains: $name_Contains1, name: $name2) {\n                    pageInfo {\n                        hasNextPage\n                        hasPreviousPage\n                        startCursor\n                        endCursor\n                    }\n                    edges {\n                        cursor\n                    }\n                }\n            }\n            cursor\n        }\n    }\n}",
+								"variables": "{\n  \"before\": \"\",\n  \"after\": \"\",\n  \"first\": 0,\n  \"last\": 0,\n  \"name\": \"\",\n  \"before1\": \"\",\n  \"after1\": \"\",\n  \"first1\": 0,\n  \"last1\": 0,\n  \"name_Iexact\": \"\",\n  \"name_Icontains\": \"\",\n  \"name_Contains\": \"\",\n  \"name1\": \"\",\n  \"gender\": \"\",\n  \"before2\": \"\",\n  \"after2\": \"\",\n  \"first2\": 0,\n  \"last2\": 0,\n  \"name_Iexact1\": \"\",\n  \"name_Icontains1\": \"\",\n  \"name_Contains1\": \"\",\n  \"name2\": \"\",\n  \"before3\": \"\",\n  \"after3\": \"\",\n  \"first3\": 0,\n  \"last3\": 0,\n  \"title_Iexact\": \"\",\n  \"title_Icontains\": \"\",\n  \"title_Contains\": \"\",\n  \"title\": \"\",\n  \"episodeId\": 0,\n  \"releaseDate\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "director",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query director ($before: String, $after: String, $first: Int, $last: Int, $title_Iexact: String, $title_Icontains: String, $title_Contains: String, $title: String, $episodeId: Int, $releaseDate: Date, $id: ID!) {\n    director (id: $id) {\n        name\n        id\n        films (before: $before, after: $after, first: $first, last: $last, title_Iexact: $title_Iexact, title_Icontains: $title_Icontains, title_Contains: $title_Contains, title: $title, episodeId: $episodeId, releaseDate: $releaseDate) {\n            pageInfo {\n                hasNextPage\n                hasPreviousPage\n                startCursor\n                endCursor\n            }\n            edges {\n                node {\n                    created\n                    modified\n                    id\n                    title\n                    episodeId\n                    openingCrawl\n                    releaseDate\n                    director {\n                        name\n                        id\n                    }\n                }\n                cursor\n            }\n        }\n    }\n}",
+								"variables": "{\n  \"before\": \"\",\n  \"after\": \"\",\n  \"first\": 0,\n  \"last\": 0,\n  \"title_Iexact\": \"\",\n  \"title_Icontains\": \"\",\n  \"title_Contains\": \"\",\n  \"title\": \"\",\n  \"episodeId\": 0,\n  \"releaseDate\": \"\",\n  \"id\": 0\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allDirectors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query allDirectors ($before: String, $after: String, $first: Int, $last: Int, $title_Iexact: String, $title_Icontains: String, $title_Contains: String, $title: String, $episodeId: Int, $releaseDate: Date, $before1: String, $after1: String, $first1: Int, $last1: Int, $name: String) {\n    allDirectors (before: $before1, after: $after1, first: $first1, last: $last1, name: $name) {\n        pageInfo {\n            hasNextPage\n            hasPreviousPage\n            startCursor\n            endCursor\n        }\n        edges {\n            node {\n                name\n                id\n                films (before: $before, after: $after, first: $first, last: $last, title_Iexact: $title_Iexact, title_Icontains: $title_Icontains, title_Contains: $title_Contains, title: $title, episodeId: $episodeId, releaseDate: $releaseDate) {\n                    pageInfo {\n                        hasNextPage\n                        hasPreviousPage\n                        startCursor\n                        endCursor\n                    }\n                    edges {\n                        cursor\n                    }\n                }\n            }\n            cursor\n        }\n    }\n}",
+								"variables": "{\n  \"before\": \"\",\n  \"after\": \"\",\n  \"first\": 0,\n  \"last\": 0,\n  \"title_Iexact\": \"\",\n  \"title_Icontains\": \"\",\n  \"title_Contains\": \"\",\n  \"title\": \"\",\n  \"episodeId\": 0,\n  \"releaseDate\": \"\",\n  \"before1\": \"\",\n  \"after1\": \"\",\n  \"first1\": 0,\n  \"last1\": 0,\n  \"name\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "producer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query producer ($before: String, $after: String, $first: Int, $last: Int, $title_Iexact: String, $title_Icontains: String, $title_Contains: String, $title: String, $episodeId: Int, $releaseDate: Date, $id: ID!) {\n    producer (id: $id) {\n        name\n        id\n        films (before: $before, after: $after, first: $first, last: $last, title_Iexact: $title_Iexact, title_Icontains: $title_Icontains, title_Contains: $title_Contains, title: $title, episodeId: $episodeId, releaseDate: $releaseDate) {\n            pageInfo {\n                hasNextPage\n                hasPreviousPage\n                startCursor\n                endCursor\n            }\n            edges {\n                node {\n                    created\n                    modified\n                    id\n                    title\n                    episodeId\n                    openingCrawl\n                    releaseDate\n                    director {\n                        name\n                        id\n                    }\n                }\n                cursor\n            }\n        }\n    }\n}",
+								"variables": "{\n  \"before\": \"\",\n  \"after\": \"\",\n  \"first\": 0,\n  \"last\": 0,\n  \"title_Iexact\": \"\",\n  \"title_Icontains\": \"\",\n  \"title_Contains\": \"\",\n  \"title\": \"\",\n  \"episodeId\": 0,\n  \"releaseDate\": \"\",\n  \"id\": 0\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allProducers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query allProducers ($before: String, $after: String, $first: Int, $last: Int, $title_Iexact: String, $title_Icontains: String, $title_Contains: String, $title: String, $episodeId: Int, $releaseDate: Date, $before1: String, $after1: String, $first1: Int, $last1: Int, $name: String) {\n    allProducers (before: $before1, after: $after1, first: $first1, last: $last1, name: $name) {\n        pageInfo {\n            hasNextPage\n            hasPreviousPage\n            startCursor\n            endCursor\n        }\n        edges {\n            node {\n                name\n                id\n                films (before: $before, after: $after, first: $first, last: $last, title_Iexact: $title_Iexact, title_Icontains: $title_Icontains, title_Contains: $title_Contains, title: $title, episodeId: $episodeId, releaseDate: $releaseDate) {\n                    pageInfo {\n                        hasNextPage\n                        hasPreviousPage\n                        startCursor\n                        endCursor\n                    }\n                    edges {\n                        cursor\n                    }\n                }\n            }\n            cursor\n        }\n    }\n}",
+								"variables": "{\n  \"before\": \"\",\n  \"after\": \"\",\n  \"first\": 0,\n  \"last\": 0,\n  \"title_Iexact\": \"\",\n  \"title_Icontains\": \"\",\n  \"title_Contains\": \"\",\n  \"title\": \"\",\n  \"episodeId\": 0,\n  \"releaseDate\": \"\",\n  \"before1\": \"\",\n  \"after1\": \"\",\n  \"first1\": 0,\n  \"last1\": 0,\n  \"name\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "any",
+			"description": "URL for the request."
+		}
+	]
+}

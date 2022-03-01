@@ -1,4 +1,4 @@
-# SW API GraphQL
+ # SW API GraphQL
 
 ## Requirements
 * [Python](https://www.python.org/) (realizado en python 3.8)
@@ -12,7 +12,7 @@
 
 Clone the project
 ```
-git clone https://github.com/gustav0/swapi.git
+git clone https://github.com/lauraparrado/LQN-technical-test.git
 ```
 
 Move into de repo and install dependencies
@@ -25,7 +25,15 @@ Run migrations and load fixtures
 python manage.py migrate
 python manage.py load_fixtures
 ```
-
+### Running logical exercises of the test
+Run exercise 1
+```
+python manage.py logic_exercise_1
+```
+Run exercise 2
+```
+python manage.py logic_exercise_2
+```
 ### Running the server
 ```
 python manage.py runserver

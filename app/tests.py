@@ -9,12 +9,12 @@ from swapi.schema import schema
 
 
 class FirstTestCase(GraphQLTestCase):
-    fixtures = ['app/fixtures/unittest.json']
+    fixtures = ["app/fixtures/unittest.json"]
     GRAPHQL_SCHEMA = schema
 
     def test_people_query(self):
         response = self.query(
-            '''
+            """
                 query{
                   allPlanets {
                     edges{
@@ -25,23 +25,23 @@ class FirstTestCase(GraphQLTestCase):
                     }
                   }
                 }
-            ''',
+            """,
         )
         self.assertResponseNoErrors(response)
 
         content = json.loads(response.content)
-        self.assertEqual(len(content['data']['allPlanets']['edges']), 61)
+        self.assertEqual(len(content["data"]["allPlanets"]["edges"]), 61)
 
 
 class PeopleMutationTestCase(GraphQLTestCase):
-    fixtures = ['app/fixtures/unittest.json']
+    fixtures = ["app/fixtures/unittest.json"]
     GRAPHQL_SCHEMA = schema
 
     def test_add_character(self):
         planet_test = G(Planet)
         film_test = G(Film)
         response = self.query(
-            '''
+            """
             mutation ADD_CHARACTER($input: AddOrUpdateCharacterMutationInput!) {
               addOrUpdateCharacterMutation(input: $input) {
                 character {
@@ -61,14 +61,14 @@ class PeopleMutationTestCase(GraphQLTestCase):
                 }
               }
             }
-            ''',
+            """,
             op_name="ADD_CHARACTER",
             input_data={
                 "name": "seño adasaura",
                 "homeWorld": to_global_id("PlanetType", planet_test.id),
                 "films": [to_global_id("FilmType", film_test.id)],
-                "eyeColor": "black"
-            }
+                "eyeColor": "black",
+            },
         )
 
         self.assertResponseNoErrors(response)
@@ -78,7 +78,7 @@ class PeopleMutationTestCase(GraphQLTestCase):
         people_test = G(People)
 
         response = self.query(
-            '''
+            """
             mutation UPDATE_CHARACTER($input: AddOrUpdateCharacterMutationInput!) {
               addOrUpdateCharacterMutation(input: $input) {
                 character {
@@ -98,12 +98,12 @@ class PeopleMutationTestCase(GraphQLTestCase):
                 }
               }
             }
-            ''',
+            """,
             op_name="UPDATE_CHARACTER",
             input_data={
                 "id": to_global_id("PeopleType", people_test.id),
                 "name": "test example",
-            }
+            },
         )
 
         new_people_test = People.objects.get(id=people_test.id)
